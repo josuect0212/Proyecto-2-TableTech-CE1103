@@ -1,6 +1,5 @@
 package admin;
 import GUI.loginController;
-import client.clientMain;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,6 +10,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,28 +24,26 @@ public class adminMain extends Application{
         primaryStage.show();
     }
     public static void main(String[] args) {
+        launch(args);
+    }
+    public static void sendData(String data){
         final String HOST = "127.0.0.1";
         final int PORT = 5000;
-        DataInputStream in;
         DataOutputStream out;
 
         try {
             Socket sc = new Socket(HOST, PORT);
 
-            in = new DataInputStream(sc.getInputStream());
             out = new DataOutputStream(sc.getOutputStream());
 
-            out.writeUTF("adminMain testPrint");
+            out.writeUTF(data);
 
-            String msg = in.readUTF();
-
-            System.out.println(msg);
+            out.flush();
 
             sc.close();
 
         } catch (IOException ex) {
             Logger.getLogger(adminMain.class.getName()).log(Level.SEVERE, null, ex);
         }
-        launch(args);
     }
 }

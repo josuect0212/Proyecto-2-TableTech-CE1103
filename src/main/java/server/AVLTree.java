@@ -1,18 +1,20 @@
 package server;
 
+import java.util.Arrays;
+
 public class AVLTree {
     private static final int ALLOWED_IMBALANCE = 1;
     private int height(AVLNode T){
         return T == null ? -1 : T.height;
     }
-    private AVLNode insert(int x, AVLNode T){
+    public AVLNode insert(int x, String[] data, AVLNode T){
         if (T == null){
-            return new AVLNode(x);
+            return new AVLNode(x, data);
         }
         if (x<T.element){
-            T.left = insert(x, T.left);
+            T.left = insert(x, data, T.left);
         } else if (x>T.element) {
-            T.right = insert(x, T.right);
+            T.right = insert(x, data, T.right);
         }
         return balance(T);
     }
@@ -64,5 +66,12 @@ public class AVLTree {
     private AVLNode doubleWithRightChild(AVLNode k3){
         k3.right = rotateWithLeftChild(k3.right);
         return rotateWithRightChild(k3);
+    }
+    public void inOrderTraversal(AVLNode root) {
+        if (root != null) {
+            inOrderTraversal(root.left);
+            System.out.print(root.element + " ");
+            inOrderTraversal(root.right);
+        }
     }
 }
