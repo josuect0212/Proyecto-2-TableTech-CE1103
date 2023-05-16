@@ -1,22 +1,23 @@
 {
-	"dishes": [
-		{
-			"name": "Grilled Salmon",
-			"cal": "350",
-			"prepTime": "20",
-			"price": "$20"
-		},
-		{
-			"name": "Chicken Alfredo",
-			"cal": "800",
-			"prepTime": "30",
-			"price": "$15"
-		},
-		{
-			"name": "Veggie Burger",
-			"cal": "500",
-			"prepTime": "15",
-			"price": "$12"
-		}
-	]
+  "dishes" : [ {
+    "name" : "Grilled Salmon",
+    "cal" : "350",
+    "prepTime" : "20",
+    "price" : "$20"
+  }, {
+    "name" : "Chicken Alfredo",
+    "cal" : "800",
+    "prepTime" : "30",
+    "price" : "$15"
+  }, {
+    "name" : "Veggie Burger",
+    "cal" : "500",
+    "prepTime" : "15",
+    "price" : "$12"
+  }, {
+    "name" : "Shrimp Scampi",
+    "cal" : "500",
+    "prepTime" : "25",
+    "price" : "19"
+  } ]
 }

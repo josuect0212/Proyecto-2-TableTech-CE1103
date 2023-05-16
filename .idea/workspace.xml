@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14c15584-39e5-49fd-91c1-6b1bd50bd5fb" name="Changes" comment="" />
+    <list default="true" id="dbc4a1be-1460-44cf-86a6-8d47a1f5baee" name="Changes" comment="Added the methods dishesAVL, addDish, processInput to the serverMain class, also made some changes to the sockets, for the adminMain class, added the sendData methods, and for the masterController class, added the addDishBtn method. Finally, made some changes to the MasterApp FXML file to include some requirements.">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/loginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/masterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/masterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/admin/adminMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/adminMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/AVLTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AVLTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/serverMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/serverMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MasterApp(WIP).fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MasterApp(WIP).fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dishes.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dishes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/masterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/masterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MasterApp(WIP).fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MasterApp(WIP).fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/admin/adminMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/adminMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data_structure/BSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data_structure/BSearch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data_structure/BSearchNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data_structure/BSearchNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data_structure/testBSearch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dishes.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dishes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/AVLTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/AVLTree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/serverMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/serverMain.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +37,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -26,21 +49,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Marie/OneDrive/Escritorio/TEC3/CE/Proyecto ll/Proyecto-2-TableTech-CE1103-master/Proyecto-2-TableTech-CE1103-master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documents/TecS1-23/Datos I/Proyecto 2/TableTech&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Application.Admin">
+    <configuration name="Admin" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="admin.adminMain" />
+      <module name="TableTech" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\Program\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml " />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="client.clientMain" />
+      <module name="TableTech" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\Program\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml " />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="server.serverMain" />
+      <module name="TableTech" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\Program\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml " />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="XMLController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="xml_manage.XMLController" />
       <module name="Proyecto-2-TableTech-CE1103-master" />
@@ -54,6 +101,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Admin" />
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Server" />
+      <item itemvalue="Application.XMLController" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.XMLController" />
@@ -63,7 +116,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="14c15584-39e5-49fd-91c1-6b1bd50bd5fb" name="Changes" comment="" />
+      <changelist id="dbc4a1be-1460-44cf-86a6-8d47a1f5baee" name="Changes" comment="Added the methods dishesAVL, addDish, processInput to the serverMain class, also made some changes to the sockets, for the adminMain class, added the sendData methods, and for the masterController class, added the addDishBtn method. Finally, made some changes to the MasterApp FXML file to include some requirements." />
       <created>1683940786470</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -77,5 +130,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

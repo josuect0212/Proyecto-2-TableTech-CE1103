@@ -19,5 +19,10 @@
     "cal" : "500",
     "prepTime" : "25",
     "price" : "19"
+  }, {
+    "name" : "Beef Stir Fry",
+    "cal" : "600",
+    "prepTime" : "20",
+    "price" : "13"
   } ]
 }

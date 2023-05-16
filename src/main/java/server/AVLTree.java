@@ -1,7 +1,5 @@
 package server;
 
-import java.util.Arrays;
-
 public class AVLTree {
     private static final int ALLOWED_IMBALANCE = 1;
     private int height(AVLNode T){
@@ -72,6 +70,34 @@ public class AVLTree {
             inOrderTraversal(root.left);
             System.out.print(root.element + " ");
             inOrderTraversal(root.right);
+        }
+    }
+    public AVLNode delete(int x, AVLNode T) {
+        if (T == null) {
+            return T;
+        }
+        if (x < T.element) {
+            T.left = delete(x, T.left);
+        } else if (x > T.element) {
+            T.right = delete(x, T.right);
+        } else if (T.left != null && T.right != null) {
+            AVLNode minRight = findMin(T.right);
+            T.element = minRight.element;
+            T.data = minRight.data;
+            T.right = delete(T.element, T.right);
+        } else {
+            T = (T.left != null) ? T.left : T.right;
+        }
+        return balance(T);
+    }
+
+    private AVLNode findMin(AVLNode T) {
+        if (T == null) {
+            return null;
+        } else if (T.left == null) {
+            return T;
+        } else {
+            return findMin(T.left);
         }
     }
 }
