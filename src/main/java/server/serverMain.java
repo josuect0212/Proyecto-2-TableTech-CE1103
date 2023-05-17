@@ -13,10 +13,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+/**
+ * This class initiates the server application
+ */
 public class serverMain {
     static AVLTree dishes = new AVLTree();
     static int elementVal = 0;
     static String dishList = "";
+
+    /**
+     * The main method starts the socket connection
+     * @param args
+     */
     public static void main(String[] args) {
         ServerSocket server = null;
         Socket sc = null;
@@ -50,6 +58,10 @@ public class serverMain {
         }
     }
 
+    /**
+     * The sendData method is in charge of sending the dishList through a socket connection
+     * @param dishList string containing all the dishes names.
+     */
     public static void sendData(String dishList){
         ServerSocket server;
         Socket sc;
@@ -74,6 +86,10 @@ public class serverMain {
             Logger.getLogger(adminMain.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    /**
+     * This method uses an AVL Tree to store all the dishes within its nodes.
+     */
     private static void dishesAVL(){
         ObjectMapper mapper = new ObjectMapper();
         File jsonFile = new File("src/main/resources/dishes.json");
@@ -109,6 +125,14 @@ public class serverMain {
             Logger.getLogger(serverMain.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    /**
+     * This method adds a dish to the AVL Tree, and the JSON File.
+     * @param name name of the new dish.
+     * @param cal calories of the new dish.
+     * @param prepTime preparation time of the new dish.
+     * @param price price of the new dish.
+     */
     public static void addDish(String name, String cal, String prepTime, String price){
         ObjectMapper mapper = new ObjectMapper();
         File jsonFile = new File("src/main/resources/dishes.json");
@@ -150,6 +174,11 @@ public class serverMain {
             Logger.getLogger(serverMain.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    /**
+     * This method is in charge of interpreting the input that was received via the socket.
+     * @param input message received via the socket
+     */
     public static void processInput(String input){
         String[] parts = input.split(",");
         if (parts.length == 4) {
@@ -164,11 +193,10 @@ public class serverMain {
             String newCal = parts[2];
             String newPrepTime = parts[3];
             String newPrice = parts[4];
-            editDish(prevName, name, newCal, newPrepTime, newPrice);
+            //editDish(prevName, name, newCal, newPrepTime, newPrice);
         } else {
             System.out.println("Invalid input");
         }
     }
-    public static void editDish(String prevName, String name, String cal, String prepTime, String price){
-    }
+    //public static void editDish(String prevName, String name, String cal, String prepTime, String price){}
 }

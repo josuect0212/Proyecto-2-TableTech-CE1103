@@ -3,6 +3,9 @@ package data_structure;
 
 import java.util.ArrayList;
 
+/**
+ * This class was taken from the Estructuras de Datos Jerárquicas presentation.
+ */
 public class BSearch {
 
     BSearchNode root;

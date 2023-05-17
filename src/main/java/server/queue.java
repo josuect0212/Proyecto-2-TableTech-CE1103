@@ -2,6 +2,10 @@ package server;
 
 import java.util.LinkedList;
 
+/**
+ * This class was taken from the Estructuras de Datos Lineales presentation.
+ * @param <T>
+ */
 public class queue<T> {
     private LinkedList<T> list = new LinkedList<>();
     public void enqueue(T element){

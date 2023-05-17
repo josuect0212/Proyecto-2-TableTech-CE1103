@@ -1,5 +1,8 @@
 package server;
 
+/**
+ * This class was taken from the Estructuras de Datos Jerárquicas presentation.
+ */
 public class AVLTree {
     private static final int ALLOWED_IMBALANCE = 1;
     private int height(AVLNode T){

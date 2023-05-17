@@ -11,6 +11,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Controller class for the login screen.
+ */
 public class loginController {
     public static boolean isAdmin;
     private masterController controller = new masterController();

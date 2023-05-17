@@ -16,6 +16,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 
+/**
+ * Controller class for the masterApp GUI
+ */
 public class masterController{
     @FXML
     private TextField cal;

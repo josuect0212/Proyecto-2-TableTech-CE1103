@@ -15,7 +15,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import java.io.IOException;
-
+/**
+ * This class initiates the Client application
+ */
 public class clientMain extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception{

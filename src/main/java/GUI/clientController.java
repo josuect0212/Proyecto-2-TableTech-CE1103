@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fazecast.jSerialComm.SerialPortDataListener;
 import com.fazecast.jSerialComm.SerialPortEvent;
+import data_structure.BSearchNode;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -24,6 +25,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.fazecast.jSerialComm.SerialPort;
 
+/**
+ * Controller class for the Client GUI
+ */
 public class clientController implements Initializable {
 
     @FXML
@@ -48,6 +52,9 @@ public class clientController implements Initializable {
     private int orders = 0;
     private SerialPort serialPort;
 
+    /**
+     * This method initializes the Arduino controller
+     */
     public void ArduinoController(){
         serialPort = SerialPort.getCommPort("COM4");
         serialPort.openPort();
@@ -75,11 +82,19 @@ public class clientController implements Initializable {
             }
         });
     }
-    public void sendNumberToArduino(int number) {
-        String dataToSend = "N" + number + "\n";
+
+    /**
+     * This method sends a number to the arduino
+     * @param number number to be displayed on the 7 segment
+     */
+    public void sendStringToArduino(String data) {
+        String dataToSend = data;
         serialPort.writeBytes(dataToSend.getBytes(), dataToSend.length());
     }
 
+    /**
+     * This method reads the JSON File, and gets the details of all the dishes.
+     */
     private void readDishes() {
         ObjectMapper mapper = new ObjectMapper();
         File jsonFile = new File("src/main/resources/dishes.json");
@@ -105,12 +120,23 @@ public class clientController implements Initializable {
         }
     }
 
+    /**
+     * Initialize method of the controller class
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         readDishes();
         dishBox.getItems().setAll(dishes.toArray(new String[0]));
         ArduinoController();
     }
+
+    /**
+     * This method sets the detailsLabel's text to the details of the selected item from the dishBox choiceBox.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void confirmSelection(ActionEvent event) throws IOException {
         String selectedItem = dishBox.getSelectionModel().getSelectedItem();
@@ -123,6 +149,12 @@ public class clientController implements Initializable {
             detailsLabel.setText(details);
         }
     }
+
+    /**
+     * This method adds the selected dish to a pre-order queue.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void addDish(ActionEvent event) throws IOException{
         String selectedItem = dishBox.getSelectionModel().getSelectedItem();
@@ -140,19 +172,31 @@ public class clientController implements Initializable {
             }
         }
     }
+
+    /**
+     * This method adds all the dishes that were selected to the OrderQueue
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void addOrder(ActionEvent event) throws IOException{
         if(!PreOrderQueue.isEmpty()){
             while (!PreOrderQueue.isEmpty()) {
+                orders++;
                 String dish = PreOrderQueue.dequeue();
                 OrderQueue.enqueue(dish);
             }
+            sendStringToArduino("S2");
+            sendStringToArduino(Integer.toString(orders));
             System.out.println("Order Queue: " + OrderQueue);
-            orders++;
-            sendNumberToArduino(orders);
             startOrderProcessing();
         }
     }
+
+    /**
+     * This method starts the preparation timer
+     * @param prepTime preparation time of the current dish
+     */
     private void startPreparationTimer(int prepTime) {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
@@ -164,23 +208,61 @@ public class clientController implements Initializable {
 
         timer.schedule(task, prepTime * 1000);
     }
+
+    /**
+     * This method takes the preparation time of the first element of the OrderQueue to create a timer.
+     */
     private void startOrderProcessing() {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
+            private int elapsedTime = 0;
+            private int prepTime = 0;
+            private String currentDishName;
+
             @Override
             public void run() {
-                if (!OrderQueue.isEmpty()) {
+                if (elapsedTime == 0) {
                     String dish = OrderQueue.dequeue();
-                    System.out.println("Preparing dish: " + dish);
-                    if (!OrderQueue.isEmpty()) {
-                        String nextDish = OrderQueue.peek();
-                        String prepTimeStr = nextDish.substring(nextDish.lastIndexOf('-') + 1).trim();
-                        int prepTime = Integer.parseInt(prepTimeStr);
-                        startPreparationTimer(prepTime);
-                    }
+                    orders--;
+                    currentDishName = dish.substring(0, dish.lastIndexOf('-'));
+                    String prepTimeStr = dish.substring(dish.lastIndexOf('-') + 1).trim();
+                    prepTime = Integer.parseInt(prepTimeStr);
+                    System.out.println("Preparing dish: " + currentDishName);
+                    System.out.println("Percentage of completion for " + currentDishName + ": 0%");
+                }
+
+                double percentage = (elapsedTime * 100.0) / prepTime;
+                if (percentage >= 22 && percentage < 28) {
+                    System.out.println("Percentage of completion for " + currentDishName + ": " + percentage + "%");
+                    sendStringToArduino("A");
+                }
+                if (percentage >= 47 && percentage < 53) {
+                    System.out.println("Percentage of completion for " + currentDishName + ": " + percentage + "%");
+                    sendStringToArduino("B");
+                }
+                if (percentage >= 72 && percentage < 78) {
+                    System.out.println("Percentage of completion for " + currentDishName + ": " + percentage + "%");
+                    sendStringToArduino("C");
+                }
+
+                if (elapsedTime == prepTime) {
+                    sendStringToArduino(Integer.toString(orders));
+                    sendStringToArduino("S1");
+                    System.out.println("Finished preparing dish: " + currentDishName);
+                    timer.cancel();
+                    startOrderProcessing();
+                } else {
+                    elapsedTime++;
                 }
             }
         };
-        timer.schedule(task, 0);
+
+        if (!OrderQueue.isEmpty()) {
+            String nextDish = OrderQueue.peek();
+            String prepTimeStr = nextDish.substring(nextDish.lastIndexOf('-') + 1).trim();
+            int prepTime = Integer.parseInt(prepTimeStr);
+            startPreparationTimer(prepTime);
+        }
+        timer.schedule(task, 0, 1000);
     }
 }

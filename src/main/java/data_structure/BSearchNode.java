@@ -1,7 +1,9 @@
 package data_structure;
 
 
-
+/**
+ * This class was taken from Estructuras de Datos Jerárquicas presentation.
+ */
 public class BSearchNode {
 
 

@@ -1,5 +1,8 @@
 package server;
 
+/**
+ * This class was taken from the Estructuras de Datos Jerárquicas presentation.
+ */
 public class AVLNode {
     int element;
     String[] data;

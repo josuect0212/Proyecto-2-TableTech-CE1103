@@ -16,7 +16,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+/**
+ * This class initiates the masterApp application
+ */
 public class adminMain extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception{

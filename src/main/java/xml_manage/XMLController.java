@@ -11,6 +11,9 @@ import org.w3c.dom.*;
 
 import java.util.ArrayList;
 
+/**
+ * This class was made as an XMLController for managing these type of files.
+ */
 public class XMLController {
 
     public DocumentBuilderFactory factory;
