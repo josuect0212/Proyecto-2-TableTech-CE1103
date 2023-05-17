@@ -16,4 +16,11 @@ public class queue<T> {
     public int size(){
         return list.size();
     }
+    public T peek(){
+        return list.getFirst();
+    }
+    @Override
+    public String toString() {
+        return list.toString();
+    }
 }

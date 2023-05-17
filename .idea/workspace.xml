@@ -4,25 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbc4a1be-1460-44cf-86a6-8d47a1f5baee" name="Changes" comment="Added the methods dishesAVL, addDish, processInput to the serverMain class, also made some changes to the sockets, for the adminMain class, added the sendData methods, and for the masterController class, added the addDishBtn method. Finally, made some changes to the MasterApp FXML file to include some requirements.">
+    <list default="true" id="dbc4a1be-1460-44cf-86a6-8d47a1f5baee" name="Changes" comment="Added the delete method to the AVLTree, and the findMin method. Made some changes to existing methods. Added the processData method and the receiveData method to the adminMain class. Added an editDish, deleteDish, updateChoiceBox, and a setChoiceBox method, but they're not working properly or incomplete.">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/loginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/masterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/masterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/adminMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/adminMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/AVLTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AVLTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/serverMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/serverMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MasterApp(WIP).fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MasterApp(WIP).fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dishes.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dishes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/masterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/masterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MasterApp(WIP).fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MasterApp(WIP).fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/adminMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/adminMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data_structure/BSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data_structure/BSearch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data_structure/BSearchNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data_structure/BSearchNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data_structure/testBSearch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/clientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/clientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/clientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/clientMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/queue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ClientApp(WIP).fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ClientApp(WIP).fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/loginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/loginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dishes.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dishes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/server/AVLTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/AVLTree.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/server/serverMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/serverMain.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +45,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Documents/TecS1-23/Datos I/Proyecto 2/TableTech&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -63,7 +56,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Admin">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Admin" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="admin.adminMain" />
       <module name="TableTech" />
@@ -126,6 +119,14 @@
       <workItem from="1684003310729" duration="3124000" />
       <workItem from="1684026941330" duration="2592000" />
     </task>
+    <task id="LOCAL-00001" summary="Added the delete method to the AVLTree, and the findMin method. Made some changes to existing methods. Added the processData method and the receiveData method to the adminMain class. Added an editDish, deleteDish, updateChoiceBox, and a setChoiceBox method, but they're not working properly or incomplete.">
+      <created>1684212386367</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684212386367</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,5 +142,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added the delete method to the AVLTree, and the findMin method. Made some changes to existing methods. Added the processData method and the receiveData method to the adminMain class. Added an editDish, deleteDish, updateChoiceBox, and a setChoiceBox method, but they're not working properly or incomplete." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the delete method to the AVLTree, and the findMin method. Made some changes to existing methods. Added the processData method and the receiveData method to the adminMain class. Added an editDish, deleteDish, updateChoiceBox, and a setChoiceBox method, but they're not working properly or incomplete." />
   </component>
 </project>

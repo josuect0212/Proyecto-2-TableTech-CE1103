@@ -11,13 +11,13 @@
    <children>
       <Label layoutX="14.0" layoutY="30.0" text="Order history:" />
       <ListView layoutX="14.0" layoutY="48.0" prefHeight="331.0" prefWidth="271.0" />
-      <ChoiceBox layoutX="300.0" layoutY="93.0" prefWidth="150.0" />
-      <Button layoutX="464.0" layoutY="93.0" mnemonicParsing="false" text="Confirm" />
+      <ChoiceBox fx:id="dishBox" layoutX="300.0" layoutY="93.0" prefWidth="150.0" />
+      <Button fx:id="confirmBtn" layoutX="464.0" layoutY="93.0" mnemonicParsing="false" onAction="#confirmSelection" text="Confirm" />
       <Label layoutX="301.0" layoutY="124.0" text="Details:" />
       <Label layoutX="301.0" layoutY="76.0" text="Choose a dish:" />
-      <Label layoutX="309.0" layoutY="141.0" text="[DetailsLabel]" />
-      <Button layoutX="371.0" layoutY="214.0" mnemonicParsing="false" text="Confirm Order" />
-      <Button layoutX="313.0" layoutY="167.0" mnemonicParsing="false" text="Add dish" />
+      <Label fx:id="detailsLabel" layoutX="309.0" layoutY="141.0" text="[DetailsLabel]" />
+      <Button fx:id="orderBtn" layoutX="371.0" layoutY="214.0" mnemonicParsing="false" onAction="#addOrder" text="Confirm Order" />
+      <Button fx:id="addDishBtn" layoutX="313.0" layoutY="167.0" mnemonicParsing="false" onAction="#addDish" text="Add dish" />
       <CheckBox layoutX="194.0" layoutY="30.0" mnemonicParsing="false" text="Active orders" />
    </children>
 </AnchorPane>

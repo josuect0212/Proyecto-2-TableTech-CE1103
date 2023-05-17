@@ -25,6 +25,7 @@ public class clientMain extends Application{
         primaryStage.show();
     }
     public static void main(String[] args) {
+        launch(args);
         final String HOST = "127.0.0.1";
         final int PORT = 5000;
         DataInputStream in;
@@ -46,6 +47,5 @@ public class clientMain extends Application{
         } catch (IOException ex) {
             Logger.getLogger(clientMain.class.getName()).log(Level.SEVERE, null, ex);
         }
-        launch(args);
     }
 }
