@@ -26,7 +26,11 @@ public class XMLController {
             throw new RuntimeException(e);
         }
     }
-
+    
+     /**
+     * Generate the initial xml file for admins
+     */
+    
     public void generate_initial_admin(){
 
         Element root = doc.createElement("admins");
@@ -56,7 +60,11 @@ public class XMLController {
         }
 
     }
-
+    
+    /**
+     * Generate the initial xml file for users
+     */
+    
     public void generate_inital_user(){
 
         Element root = doc.createElement("users");
@@ -86,7 +94,12 @@ public class XMLController {
         }
 
     }
-
+     /**
+     * Load data from xml file
+     * @param xml
+     * @param type
+     * @return BSearch
+     */
     public BSearch load_data(String xml, String type){
 
         BSearch tree = new BSearch();
@@ -110,7 +123,13 @@ public class XMLController {
         return tree;
 
     }
-
+    
+     /**
+     * Save data to xml file
+     * @param xml
+     * @param type
+     * @param tree
+     */
     public void save_data(String xml, String type, BSearch tree) {
         try {
 
